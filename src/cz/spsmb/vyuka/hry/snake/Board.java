@@ -6,13 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.font.FontRenderContext;
-import java.awt.font.GlyphVector;
-import java.awt.geom.AffineTransform;
 import java.awt.image.*;
-import java.awt.image.renderable.RenderableImage;
-import java.text.AttributedCharacterIterator;
-import java.util.Map;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -46,19 +40,19 @@ public class Board extends JPanel implements ActionListener {
 
     public Board() {
 
-        initBoard();
+        this.initBoard();
     }
 
     private void initBoard() {
 
-        addKeyListener(new TAdapter());
-        setBackground(Color.black);
-        setFocusable(true);
+        this.addKeyListener(new TAdapter());
+        this.setBackground(Color.black);
+        this.setFocusable(true);
 
-        setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
+        this.setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
         //loadImages();
-        drawImages();
-        initGame();
+        this.drawImages();
+        this.initGame();
     }
 
     private void loadImages() {
@@ -77,17 +71,22 @@ public class Board extends JPanel implements ActionListener {
 
         //ImageIcon iid = new ImageIcon("src/resources/dot.png");
         BufferedImage bi = new BufferedImage(10,10,BufferedImage.TYPE_INT_ARGB);
+        //bi.setRGB(9,9,new Color(0xE0,0,0).getRGB());
+
         bi.getGraphics().fillOval(5,5,10,10);
+        bi.getGraphics().setColor(new Color(0xE0,0,0));
 
         this.ball = bi;
 
         //ImageIcon iia = new ImageIcon("src/resources/apple.png");
         BufferedImage bi2 = new BufferedImage(10,10,BufferedImage.TYPE_INT_ARGB);
+        //bi2.setRGB(9,9,new Color(0, 0xE0,0).getRGB());
         bi2.getGraphics().fillOval(5,5,10,10);
         this.apple = bi2;
 
         //ImageIcon iih = new ImageIcon("src/resources/head.png");
         BufferedImage bi3 = new BufferedImage(10,10,BufferedImage.TYPE_INT_ARGB);
+        //bi3.setRGB(9,9,new Color(0, 0xE0,0xE0).getRGB());
         bi3.getGraphics().fillOval(5,5,10,10);
         this.head = bi3;
     }
