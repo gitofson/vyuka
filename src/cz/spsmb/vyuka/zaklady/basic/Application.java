@@ -12,7 +12,7 @@ public class Application extends JFrame {
 
     private void initUI() {
 
-        add(new Board());
+        add(new BoardDonut());
 
         setSize(250, 200);
 

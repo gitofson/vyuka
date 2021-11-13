@@ -50,20 +50,20 @@ public class Board extends JPanel implements ActionListener {
         this.setFocusable(true);
 
         this.setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
-        //loadImages();
-        this.drawImages();
+        loadImages();
+        //this.drawImages();
         this.initGame();
     }
 
     private void loadImages() {
 
-        ImageIcon iid = new ImageIcon("src/resources/dot.png");
+        ImageIcon iid = new ImageIcon("src/resources/snake/dot.png");
         this.ball = iid.getImage();
 
-        ImageIcon iia = new ImageIcon("src/resources/apple.png");
+        ImageIcon iia = new ImageIcon("src/resources/snake/apple.png");
         this.apple = iia.getImage();
 
-        ImageIcon iih = new ImageIcon("src/resources/head.png");
+        ImageIcon iih = new ImageIcon("src/resources/snake/head.png");
         this.head = iih.getImage();
     }
 
