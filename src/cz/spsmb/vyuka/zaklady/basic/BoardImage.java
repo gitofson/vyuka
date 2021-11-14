@@ -26,7 +26,7 @@ public class BoardImage extends JPanel {
 
     private void loadImage() {
 
-        ImageIcon ii = new ImageIcon("src/resources/bardejov.png");
+        ImageIcon ii = new ImageIcon("src/resources/fve.jpg");
         bardejov = ii.getImage();
     }
 
