@@ -35,6 +35,7 @@ public class Board extends JPanel {
         addKeyListener(new TAdapter());
         setFocusable(true);
         setPreferredSize(new Dimension(Commons.WIDTH, Commons.HEIGHT));
+        this.setLocation(0,0);
 
         gameInit();
     }

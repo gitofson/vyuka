@@ -11,5 +11,5 @@ public interface Commons {
     //final int INIT_PADDLE_Y = 330;
     final int INIT_BALL_X = 230;
     final int INIT_BALL_Y = 355;
-    final int PERIOD = 10;
+    final int PERIOD = 3;
 }
