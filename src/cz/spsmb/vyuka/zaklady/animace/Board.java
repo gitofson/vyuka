@@ -18,7 +18,7 @@ public class Board extends JPanel
     private final int B_HEIGHT = 350;
     private final int INITIAL_X = -40;
     private final int INITIAL_Y = -40;
-    private final int DELAY = 25;
+    private final int DELAY = 1;
 
     private Image star;
     private Timer timer;
@@ -65,8 +65,8 @@ public class Board extends JPanel
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        x += 1;
-        y += 1;
+        x += 5;
+        y += 5;
 
         if (y > B_HEIGHT) {
 
