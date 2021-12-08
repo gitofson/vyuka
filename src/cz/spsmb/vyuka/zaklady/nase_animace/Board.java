@@ -10,6 +10,7 @@ public class Board extends JPanel implements ActionListener {
     private SpaceShip spaceShip;
     private final int DELAY = 10;
 
+    //voláno automaticky při pohybu okna, či pozvolání metody repaint()
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -27,6 +28,7 @@ public class Board extends JPanel implements ActionListener {
         timer.start();
     }
 
+    //Timer - uběhlo 10ms
     @Override
     public void actionPerformed(ActionEvent e) {
         spaceShip.move();
