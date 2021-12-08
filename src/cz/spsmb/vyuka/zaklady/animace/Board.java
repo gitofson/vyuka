@@ -62,6 +62,8 @@ public class Board extends JPanel
         Toolkit.getDefaultToolkit().sync();
     }
 
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
 

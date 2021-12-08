@@ -8,7 +8,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class BoardDonut extends JPanel {
 
@@ -47,4 +47,5 @@ public class BoardDonut extends JPanel {
             g2d.draw(at.createTransformedShape(e));
         }
     }
+
 }
