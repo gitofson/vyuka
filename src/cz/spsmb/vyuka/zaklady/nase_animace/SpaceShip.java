@@ -1,10 +1,11 @@
-package cz.spsmb.vyuka.zaklady.pohybSpritu;
+package cz.spsmb.vyuka.zaklady.nase_animace;
 
-import java.awt.Image;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
-import javax.swing.ImageIcon;
+import java.awt.event.KeyListener;
 
-public class SpaceShip {
+public class SpaceShip implements KeyListener {
 
     private int dx;
     private int dy;
@@ -12,55 +13,24 @@ public class SpaceShip {
     private int y = 60;
     private int w;
     private int h;
-    private Image image;
 
     public SpaceShip() {
-
-        loadImage();
-    }
-
-    private void loadImage() {
-
         ImageIcon ii = new ImageIcon("src/resources/craft.png");
-        image = ii.getImage();
+        this.image = ii.getImage();
 
         this.w = image.getWidth(null);
         this.h = image.getHeight(null);
     }
 
-    public void move() {
+    private Image image;
 
-        x += dx;
-        y += dy;
+    @Override
+    public void keyTyped(KeyEvent e) {
+
     }
 
-    public int getX() {
-
-        return x;
-    }
-
-    public int getY() {
-
-        return y;
-    }
-
-    public int getWidth() {
-
-        return w;
-    }
-
-    public int getHeight() {
-
-        return h;
-    }
-
-    public Image getImage() {
-
-        return image;
-    }
-
+    @Override
     public void keyPressed(KeyEvent e) {
-
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_LEFT) {
@@ -80,8 +50,25 @@ public class SpaceShip {
         }
     }
 
-    public void keyReleased(KeyEvent e) {
+    public int getX() {
+        return x;
+    }
 
+    public int getY() {
+        return y;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void move() {
+        this.x+=this.dx;
+        this.y+=this.dy;
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_LEFT) {

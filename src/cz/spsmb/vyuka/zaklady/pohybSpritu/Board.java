@@ -4,10 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -24,9 +21,9 @@ public class Board extends JPanel implements ActionListener {
 
     private void initBoard() {
 
-        addKeyListener(new TAdapter());
-        setBackground(Color.black);
-        setFocusable(true);
+        this.addKeyListener(new TAdapter());
+        this.setBackground(Color.black);
+        this.setFocusable(true);
 
         spaceShip = new SpaceShip();
 
@@ -60,16 +57,21 @@ public class Board extends JPanel implements ActionListener {
     private void step() {
 
         spaceShip.move();
-
+        //repaint();
         repaint(spaceShip.getX()-1, spaceShip.getY()-1,
                 spaceShip.getWidth()+2, spaceShip.getHeight()+2);
     }
 
-    private class TAdapter extends KeyAdapter {
+    private class TAdapter implements KeyListener {
 
         @Override
         public void keyReleased(KeyEvent e) {
             spaceShip.keyReleased(e);
+        }
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+
         }
 
         @Override
