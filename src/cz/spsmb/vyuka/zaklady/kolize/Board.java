@@ -1,16 +1,11 @@
 package cz.spsmb.vyuka.zaklady.kolize;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Rectangle;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
@@ -27,6 +22,9 @@ public class Board extends JPanel implements ActionListener {
     private final int B_WIDTH = 400;
     private final int B_HEIGHT = 300;
     private final int DELAY = 15;
+    private final int OBSTACLE_X = 100;
+    private final int OBSTACLE_Y = 100;
+    private BufferedImage obstacle;
 
     private final int[][] pos = {
             {2380, 29}, {2500, 59}, {1380, 89},
@@ -57,6 +55,7 @@ public class Board extends JPanel implements ActionListener {
         spaceship = new SpaceShip(ICRAFT_X, ICRAFT_Y);
 
         initAliens();
+        initObstacle();
 
         timer = new Timer(DELAY, this);
         timer.start();
@@ -69,6 +68,19 @@ public class Board extends JPanel implements ActionListener {
         for (int[] p : pos) {
             aliens.add(new Alien(p[0], p[1]));
         }
+    }
+
+    public void initObstacle(){
+        //ImageIcon iid = new ImageIcon("src/resources/dot.png");
+        BufferedImage bi = new BufferedImage(50,50,BufferedImage.TYPE_INT_ARGB);
+        //bi.setRGB(9,9,new Color(0xE0,0,0).getRGB());
+
+        bi.getGraphics().fillOval(0,0,50,50);
+        bi.getGraphics().setColor(new Color(0xE0,0,0));
+
+
+        this.obstacle = bi;
+
     }
 
     @Override
@@ -89,6 +101,7 @@ public class Board extends JPanel implements ActionListener {
 
     private void drawObjects(Graphics g) {
 
+
         if (spaceship.isVisible()) {
             g.drawImage(spaceship.getImage(), spaceship.getX(), spaceship.getY(),
                     this);
@@ -108,6 +121,9 @@ public class Board extends JPanel implements ActionListener {
                 g.drawImage(alien.getImage(), alien.getX(), alien.getY(), this);
             }
         }
+        g.drawImage(this.obstacle, this.OBSTACLE_X, this.OBSTACLE_Y, this);
+
+
 
         g.setColor(Color.WHITE);
         g.drawString("Aliens left: " + aliens.size(), 5, 15);
@@ -192,6 +208,7 @@ public class Board extends JPanel implements ActionListener {
 
     public void checkCollisions() {
 
+        java.awt.Polygon p3 = new Polygon();
         Rectangle r3 = spaceship.getBounds();
 
         for (Alien alien : aliens) {
