@@ -157,22 +157,22 @@ public class Board extends JPanel implements ActionListener {
 
     private void inGame() {
 
-        if (!ingame) {
-            timer.stop();
+        if (!this.ingame) {
+            this.timer.stop();
         }
     }
 
     private void updateShip() {
 
-        if (spaceship.isVisible()) {
+        if (this.spaceship.isVisible()) {
 
-            spaceship.move();
+            this.spaceship.move();
         }
     }
 
     private void updateMissiles() {
 
-        List<Missile> ms = spaceship.getMissiles();
+        List<Missile> ms = this.spaceship.getMissiles();
 
         for (int i = 0; i < ms.size(); i++) {
 
@@ -188,30 +188,30 @@ public class Board extends JPanel implements ActionListener {
 
     private void updateAliens() {
 
-        if (aliens.isEmpty()) {
+        if (this.aliens.isEmpty()) {
 
-            ingame = false;
+            this.ingame = false;
             return;
         }
 
-        for (int i = 0; i < aliens.size(); i++) {
+        for (int i = 0; i < this.aliens.size(); i++) {
 
-            Alien a = aliens.get(i);
+            Alien a = this.aliens.get(i);
 
             if (a.isVisible()) {
                 a.move();
             } else {
-                aliens.remove(i);
+                this.aliens.remove(i);
             }
         }
     }
 
     public void checkCollisions() {
+        //lépe pomocí třídy Polygon - viz http://ntci.on.ca/compsci/hef/ics4/PolyImage.html
+        Rectangle r3 = this.spaceship.getBounds();
 
         java.awt.Polygon p3 = new Polygon();
-        Rectangle r3 = spaceship.getBounds();
-
-        for (Alien alien : aliens) {
+        for (Alien alien : this.aliens) {
 
             Rectangle r2 = alien.getBounds();
 

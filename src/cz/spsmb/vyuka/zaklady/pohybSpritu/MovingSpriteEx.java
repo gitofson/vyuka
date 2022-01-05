@@ -23,7 +23,6 @@ public class MovingSpriteEx extends JFrame {
     }
 
     public static void main(String[] args) {
-
         EventQueue.invokeLater(() -> {
             MovingSpriteEx ex = new MovingSpriteEx();
             ex.setVisible(true);
