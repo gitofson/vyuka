@@ -1,7 +1,6 @@
 package cz.spsmb.vyuka.zaklady.kolize;
 
-import java.awt.Image;
-import java.awt.Rectangle;
+import java.awt.*;
 import javax.swing.ImageIcon;
 
 public class Sprite {
@@ -55,4 +54,5 @@ public class Sprite {
     public Rectangle getBounds() {
         return new Rectangle(x, y, width, height);
     }
+
 }

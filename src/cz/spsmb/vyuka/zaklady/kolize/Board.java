@@ -57,7 +57,7 @@ public class Board extends JPanel implements ActionListener {
         initAliens();
         initObstacle();
 
-        timer = new Timer(DELAY, this);
+        timer = new Timer(this.DELAY, this);
         timer.start();
     }
 
@@ -210,12 +210,12 @@ public class Board extends JPanel implements ActionListener {
         //lépe pomocí třídy Polygon - viz http://ntci.on.ca/compsci/hef/ics4/PolyImage.html
         Rectangle r3 = this.spaceship.getBounds();
 
-        java.awt.Polygon p3 = new Polygon();
+        java.awt.Polygon p3 = this.spaceship.getBorder();
         for (Alien alien : this.aliens) {
 
             Rectangle r2 = alien.getBounds();
 
-            if (r3.intersects(r2)) {
+            if (p3.intersects(r2)) {
 
                 spaceship.setVisible(false);
                 alien.setVisible(false);
