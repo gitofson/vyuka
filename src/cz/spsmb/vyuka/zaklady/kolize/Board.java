@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.geom.Area;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
@@ -211,11 +212,12 @@ public class Board extends JPanel implements ActionListener {
         Rectangle r3 = this.spaceship.getBounds();
 
         java.awt.Polygon p3 = this.spaceship.getBorder();
+        Area a = new Area(p3);
         for (Alien alien : this.aliens) {
 
             Rectangle r2 = alien.getBounds();
-
-            if (p3.intersects(r2)) {
+            a.intersect(a);
+            if (!a.isEmpty()) {
 
                 spaceship.setVisible(false);
                 alien.setVisible(false);
