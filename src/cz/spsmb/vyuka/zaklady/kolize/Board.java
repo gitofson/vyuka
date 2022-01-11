@@ -215,9 +215,10 @@ public class Board extends JPanel implements ActionListener {
         Area a = new Area(p3);
         for (Alien alien : this.aliens) {
 
-            Rectangle r2 = alien.getBounds();
-            a.intersect(a);
-            if (!a.isEmpty()) {
+            //Rectangle r2 = alien.getBounds();
+            Area alienArea = new Area(alien.getAlBorder());
+            alienArea.intersect(a);
+            if (!alienArea.isEmpty()) {
 
                 spaceship.setVisible(false);
                 alien.setVisible(false);
