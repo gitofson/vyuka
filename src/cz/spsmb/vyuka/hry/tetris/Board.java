@@ -259,7 +259,8 @@ public class Board  extends JPanel {
         Color colors[] = {new Color(0, 0, 0), new Color(204, 102, 102),
                 new Color(102, 204, 102), new Color(102, 102, 204),
                 new Color(204, 204, 102), new Color(204, 102, 204),
-                new Color(102, 204, 204), new Color(218, 170, 0)
+                new Color(102, 204, 204), new Color(218, 170, 0),
+                new Color(180, 71, 115)
         };
 
         var color = colors[shape.ordinal()];
@@ -330,6 +331,8 @@ public class Board  extends JPanel {
                 case KeyEvent.VK_RIGHT -> tryMove(curPiece, curX + 1, curY);
                 case KeyEvent.VK_DOWN -> tryMove(curPiece.rotateRight(), curX, curY);
                 case KeyEvent.VK_UP -> tryMove(curPiece.rotateLeft(), curX, curY);
+                case KeyEvent.VK_X -> tryMove(curPiece.mirrorX(), curX, curY);
+                case KeyEvent.VK_Y -> tryMove(curPiece.mirrorY(), curX, curY);
                 case KeyEvent.VK_SPACE -> dropDown();
                 case KeyEvent.VK_D -> oneLineDown();
             }
