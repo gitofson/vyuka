@@ -12,14 +12,14 @@ public class SwingTimerEx extends JFrame {
 
     private void initUI() {
 
-        add(new Board());
+        this.add(new Board());
 
-        setResizable(false);
-        pack();
+        this.setResizable(false);
+        this.pack();
 
-        setTitle("Star");
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setTitle("Star");
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public static void main(String[] args) {

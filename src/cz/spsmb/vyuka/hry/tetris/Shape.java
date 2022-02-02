@@ -31,6 +31,7 @@ public class Shape {
                 {{1, -1}, {0, -1}, {0, 0}, {0, 1}},  //MirroredLShape
                 {{-1, 0}, {0, 1}, {1, 0}, {0, -1}}   //OwnShape
 
+
         };
 
         for (int i = 0; i < 4; i++) {
@@ -69,7 +70,7 @@ public class Shape {
     void setRandomShape() {
 
         var r = new Random();
-        int x = r.nextInt(8) + 1;
+        int x = r.nextInt(Tetrominoe.values().length) + 1;
 
         Tetrominoe[] values = Tetrominoe.values();
         setShape(values[x]);

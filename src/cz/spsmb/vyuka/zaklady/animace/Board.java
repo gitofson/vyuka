@@ -18,11 +18,12 @@ public class Board extends JPanel
     private final int B_HEIGHT = 350;
     private final int INITIAL_X = -40;
     private final int INITIAL_Y = -40;
-    private final int DELAY = 1;
+    private final int DELAY = 2;
 
     private Image star;
     private Timer timer;
     private int x, y;
+    private int dx = 1, dy = 1;
 
     public Board() {
 
@@ -64,15 +65,24 @@ public class Board extends JPanel
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        this.x += this.dx;
+        this.y += this.dy;
 
-        x += 5;
-        y += 5;
+        if (y+this.star.getHeight(null) > B_HEIGHT ) {
+            this.dx = -2;
+            this.dy = -2;
 
-        if (y > B_HEIGHT) {
-
-            y = INITIAL_Y;
-            x = INITIAL_X;
+            //y = INITIAL_Y;
+            //x = INITIAL_X;
         }
+        if (this.y < 0 ) {
+            this.dx = 2;
+            this.dy = 2;
+
+            //y = INITIAL_Y;
+            //x = INITIAL_X;
+        }
+
 
         repaint();
     }

@@ -10,11 +10,11 @@ public class ImageExample extends JFrame implements ActionListener {
     private int xLocation=0;
     private int yLocation=0;
     private Timer timer;
-    private int time;
+    private int time, dx=3, dy=2;
     public ImageExample() {
 
         initUI();
-        this.timer = new Timer(1, this);
+        this.timer = new Timer(2, this);
         this.timer.start();
     }
 
@@ -39,13 +39,22 @@ public class ImageExample extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        this.time++;
+        /*this.time++;
         //double dy
         int dy = (int) Math.round(.5*this.time*this.time);
         if((this.xLocation += dy) > this.getToolkit().getScreenSize().width-this.getWidth()){
             this.xLocation = 0;
+        }*/
+        if(this.xLocation+this.getWidth() > this.getToolkit().getScreenSize().width ||
+        this.xLocation < 0){
+            this.dx *= -1;
         }
-        //this.yLocation++;
+        if(this.yLocation+this.getHeight() > this.getToolkit().getScreenSize().height ||
+                this.yLocation < 0){
+            this.dy *= -1;
+        }
+        this.xLocation+=dx;
+        this.yLocation+=dy;
         this.setLocation(this.xLocation, this.yLocation);
     }
 }
